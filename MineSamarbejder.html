@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine samarbejder</title> <!-- Titlen, der vises i browserens fane -->
+    <link rel="stylesheet" href="style.css"> <!-- Jeg linker til mit CSS stylesheetet-->
+
+</head>
+<body>
+
+<!--Jeg opretter en uordnet liste og opretter de forskellige html-sider som listepunkter samt navngiver dem-->
+    <ul>
+        <li><a href="minHjemmeside.html">FORSIDE</a></li> <!-- <a> tagget betyder et link. Attributten href er referencen/filens adresse -->
+        <li><a href="Videoer.html">VIDEOER</a></li>
+        <li><a href="MineSamarbejder.html">MINE SAMARBEJDER</a></li>
+        <li><a href="Testimonials.html">TESTIMONIALS</a></li>
+        <li><a href="UGCbilleder.html">BILLEDER</a></li>
+    </ul>
+
+<!--jeg giver overskrifterne (alle h1) klassen "overskrift", så de kan styles ens i CSS-->
+<h1 class="overskrift">Mine samarbejder</h1>
+
+<!-- Tom beholder med id'et "samarbejder". JavaScript finder den med getElementById og sætter brandboksene ind her -->
+<div id="samarbejder">
+        <!-- HER INDSÆTTES GENEREREDE HTML-ELEMENTER VIA DOM-MANIPULATION-->
+</div>
+   
+<!-- Henter JavaScript-filen, som bygger boksene. Den står nederst, så HTML'en er indlæst først, og "samarbejder"-diven findes, når koden kører -->
+    <script src="javascript.js"></script>
+
+</body>
+</html>

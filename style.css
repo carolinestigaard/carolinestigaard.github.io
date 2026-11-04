@@ -1,0 +1,299 @@
+body {
+    margin: 0;
+    /* fjerner browserens standard-afstand rundt om hele siden */
+    /* baggrundsbillede på hele siden */
+    background-image: url("fotos/baggrund.png");
+    /* stien til billedet */
+    background-size: 100%;
+}
+
+/* styler menuen (listen) som en bordeaux bjælke på tværs af siden */
+ul {
+    background-color: #5c1013;
+    text-align: center;
+    /* centrerer menupunkterne */
+    margin: 0;
+    /* ingen ydre afstand, så bjælken rammer kanten */
+    padding: 10px;
+    width: 100%;
+    /* bjælken fylder hele skærmens bredde */
+    font-size: 13px;
+}
+
+/* når musen er over et listepunkt, bliver teksten federe */
+li:hover {
+    font-weight: bolder;
+}
+
+/* gør listepunkterne til en vandret menu i stedet for en lodret liste */
+ul li {
+    display: inline-block;
+    /* punkterne ligger ved siden af hinanden */
+    margin: 0 100px;
+    /* 0 afstand opad/nedad, 100px til siderne */
+}
+
+/* gør linkteksten i menuen hvid (ellers bliver links blå) */
+ul li a {
+    color: white;
+}
+
+/* styler fornavnet "Caroline" (h1 med klassen "fornavn") */
+.fornavn {
+    font-size: 170px;
+    /* størrelse */
+    color: #5c1013;
+    /* farve */
+    font-style: italic;
+    /* kursiv */
+    font-family: "snell Roundhand";
+    /* font */
+    font-weight: 120;
+    /* skrifttykkelse */
+    position: absolute;
+    /* placeres frit på siden, uafhængigt af andre elementer */
+    left: 600px;
+    top: 70px;
+}
+
+/* styler efternavnet "STIGAARD" (h1 med klassen "efternavn"), samme styling princip som fornavn*/
+.efternavn {
+    font-size: 100px;
+    color: #5c1013;
+    font-family: "Didot";
+    position: absolute;
+    font-weight: 120;
+    left: 720px;
+    top: 250px;
+}
+
+/* styler teksten "DK UGC Creator" (p), samme styling princip som fornavn */
+.creator {
+    font-size: 40px;
+    color: black;
+    font-family: "Didot";
+    position: absolute;
+    font-weight: 120;
+    left: 820px;
+    top: 450px;
+}
+
+/* fælles stil til alle h1-overskrifter på undersiderne (da de har klassen "overskrift") */
+.overskrift {
+    font-size: 75px;
+    color: #5c1013;
+    text-align: center;
+    font-style: italic;
+    font-family: "snell Roundhand";
+    margin-bottom: 15px;
+    /* centrerer overskriften */
+}
+
+/* div: alle testimonials med klassen feedback styles ift hinanden */
+.feedback {
+    display: flex;
+    /* gør boksene til en række */
+    justify-content: center;
+    /* centrerer boksene vandret */
+    gap: 50px;
+    /* afstand mellem boksene */
+    margin-top: 50px;
+}
+
+/* udseendet på hver enkelt testimonial-boks*/
+.boks {
+    width: 500px;
+    background-color: #5c1013;
+    color: white;
+    /* hvid tekst på bordeaux baggrund */
+    padding: 20px;
+    /* luft inde i boksen */
+    border-radius: 20px;
+    /* runde hjørner */
+    text-align: center;
+    font-size: 15px;
+}
+
+/* når musen er over en boks skfiter cursoren, samt boksen den vokser lidt  og får en skygge */
+.boks:hover,
+.brand:hover {
+    transform: scale(1.05);
+    /* forstørrer til 105% */
+    cursor: pointer;
+    /* musen bliver til en hånd */
+    box-shadow: 4px 5px rgba(0, 0, 0, 0.3);
+    /* skygge (x og y (4px og 5 px) er skyggens placering i forhold til elementet, og farven er sort (derfor 0,0,0) med 30% gennemsigtighed) */
+}
+
+/* profilbilledet på forsiden (img med klassen "align-center") */
+img.align-center {
+    display: block;
+    /* nødvendigt for at margin virker til centrering */
+    margin: 120px;
+    margin-left: 250px;
+    /* overskriver venstre margin fra linjen over */
+    border-top-left-radius: 250px;
+    /* runder kun de to øverste hjørner, så det bliver en bue */
+    border-top-right-radius: 250px;
+    /* runder kun de to øverste hjørner, så det bliver en bue */
+}
+
+/* billedgalleri: et grid med 4 kolonner */
+.galleri {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 lige brede kolonner */
+    width: 75%;
+    /* galleriet fylder 75% af skærmens bredde */
+    margin: 50px auto;
+    /* auto til siderne centrerer det */
+    gap: 25px;
+    /* afstand mellem billederne */
+}
+
+/* alle billeder inde i galleriet */
+.galleri img {
+    width: 105%;
+    height: 350px;
+    position: relative;
+    margin: 10px;
+    transition: transform 0.5s ease;
+    /* gør forstørrelsen blød over 0,5 sekund */
+}
+
+/* når musen er over et billede i galleriet skfiter cursoren, samt boksen den vokser lidt */
+.galleri :hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+/* mail-ikonet på forsiden (id="mail"), flyttes op ved siden af teksten */
+#mail img {
+    width: 40px;
+    height: auto;
+    /* højden følger bredden, så ikonet ikke forvrænges */
+    display: block;
+    margin-left: 950px;
+    margin-top: -190px;
+    /* negativ margin trækker ikonet opad */
+}
+
+/* containeren hvor JavaScript indsætter brand-boksene: et grid med 5 kolonner */
+#samarbejder {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* laver 5 kolonner, der er spredt ligeligt ud på siden */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* hver brandboks styles (laves af JavaScript) */
+.brand {
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    background-color: #5c1013;
+}
+
+/* logoet i brandboksen */
+.brand img {
+    width: 110px;
+    /*når width og height er ens, bliver billedet kvadratisk, som er bedst til cirklen */
+    height: 110px;
+    border-radius: 50%;
+    /*runder hjørnerne så meget det bliver en cirkel*/
+    margin: 0 auto 15px auto;
+    /* top 0, højre auto, bund 15px, venstre auto (auto på siderne centrerer) */
+    display: block;
+}
+
+/* brandets navn (h3): lille afstand og hvid tekst */
+.brand h3 {
+    margin: 8px 0;
+    color: white;
+}
+
+/* teksterne (p) i brandboksene: content og dato styles */
+.brand p {
+    margin: 4px 0;
+    color: white;
+}
+
+/* datoerne (p med klassen "Dato"): lidt luft over, kursiv og mindre skrift */
+.brand.Dato {
+    padding-top: 15px;
+    font-style: italic;
+    font-size: smaller;
+}
+
+/* Selve videogalleriet */
+.videoGalleri {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 40px;
+    margin-top: -10px;
+}
+
+/* designer videoerne i videogalleriet */
+.videoGalleri video {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* Selve overlayet: dækker hele skærmen bag det store billede */
+.lightbox {
+    position: fixed;
+    /* Låst til skærmen, også hvis man scroller */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Fylder hele bredden */
+    height: 100%;
+    /* Fylder hele højden */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Sort baggrund, 80% uigennemsigtig */
+    display: flex;
+    justify-content: center;
+    /* Centrerer vandret */
+    align-items: center;
+    /* Centrerer lodret */
+}
+
+/* Billedet inde i lightboxen */
+.lightbox img {
+    max-width: 90%;
+    /* Aldrig bredere end 90% af skærmen */
+    max-height: 90%;
+    /* Aldrig højere end 90% af skærmen */
+}
+
+.knapper{
+    display: flex;
+    margin-left: 30px;
+    position: relative;
+}
+.knapper img{
+    width: 80px;
+    padding: 5px;
+}
+
+.knapper img:hover{
+    transform: scale(1.1);
+    cursor: pointer
+}
+
+.mappe{
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.mappe p{
+    margin: 8px 0 0 0;
+    color: #5c1013;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-right: 5px;
+}

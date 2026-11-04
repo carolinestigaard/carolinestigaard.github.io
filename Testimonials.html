@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials</title>
+    <link rel="stylesheet" href="style.css"> <!-- Jeg linker til mit CSS stylesheetet-->
+
+</head>
+
+<body>
+    <!--Jeg opretter en uordnet liste og opretter de forskellige html-sider som listepunkter samt navngiver dem-->
+    <ul>
+        <li><a href="minHjemmeside.html">FORSIDE</a></li> <!-- <a> tagget betyder et link. Attributten href er referencen/filens adresse -->
+        <li><a href="Videoer.html">VIDEOER</a></li>
+        <li><a href="MineSamarbejder.html">MINE SAMARBEJDER</a></li>
+        <li><a href="Testimonials.html">TESTIMONIALS</a></li>
+        <li><a href="UGCbilleder.html">BILLEDER</a></li>
+    </ul>
+
+    <!--jeg giver overskrifterne (alle h1) klassen "overskrift", så de kan styles ens i CSS-->
+    <h1 class="overskrift">Testimonials</h1>
+
+    <!-- Ydre div (beholder), der samler alle anmeldelserne/boksene, så de kan placeres og styles samlet i CSS. Layoutet af boksene-->
+    <div class="feedback">
+
+        <div class="boks">
+            <!-- Første anmeldelse: (div) med klassen "boks", så anmeldelserne kan styles ens. Udseende af boksene-->
+            <h3>⭐️⭐️⭐️⭐️⭐️</h3> <!--Stjernerne som overskrift (h3), så de fylder mere end teksten -->
+            <p> <!-- paragraf tag med <em> tag som sætter citatet i kursiv -->
+                <em>"Caroline is one of the most professional creators we have worked with. She fully understands what
+                    is expected of her, and consistently produces high-quality content with engaging hooks that make you
+                    stop and pay attention. <br><br> Her work is delivered on time and is also aesthetically pleasing
+                    and sales-driven. On top of that, Caroline is incredibly talented, skilled, and wonderful to
+                    communicate with!"" <br><br> "You’re one of the best creators I work with (and I work with DK, SE,
+                    and NO)."</em>
+            </p>
+            <p class="navn">
+                <!-- Afsenderens navn og jobtitel. Klassen "navn" bruges til styling, og <strong> tagget gør teksten fed -->
+                <strong> - Katja (Influencer Marketing Manager)</strong>
+            </p>
+        </div>
+        <!-- dette gentages til anden anmeldelse-->
+        <div class="boks">
+            <h3>⭐️⭐️⭐️⭐️⭐️</h3>
+            <p>
+                <em>"Caroline is an absolutely fantastic UGC creator with whom we have been incredibly happy to work
+                    with. She combines a rare level of professionalism with genuine creativity and an impressive
+                    understanding of the brand’s needs. Her communication is always clear and pleasant, her deadlines
+                    are met to the letter, and she consistently delivers content of absolute top quality. <br><br>
+                    Caroline is the type of person who makes any collaboration easier – she is proactive,
+                    solution-oriented, and always goes the extra mile to ensure the result is perfect. We can only give
+                    her the warmest recommendations and look forward to working with her again."</em>
+            </p>
+            <p class="navn">
+                <strong> - Sayed (Operations Director)</strong>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

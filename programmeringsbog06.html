@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InClass 06</title>
+    <style>
+        .hotpink {
+            background-color: hotpink;
+        }
+
+        .sparkel {
+            background-color: orange;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .snack {
+            display: inline-block;
+            min-width: 200px;
+            min-height: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="overskrift">Busters favorit snack..!</h1>
+    <p id="snakparagraf">her er alle min favorit snack som i kan læse mere om</p>
+
+    <p id="feedback"></p>
+
+    <div id="snackContainer">
+
+    </div>
+
+        <form id="snackform">
+        Snack navn:<br>
+        <input type="text" name="snackname"><br>
+        Stjerner:<br>
+        <input type="text" name="stjerner"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <!--
+    her er en HTML kommentar
+    -->
+
+    <script>
+
+        /// DEL 01
+        let h1Element = document.getElementById("overskrift");
+        let snakPElement = document.querySelector("#snakparagraf");
+
+        //Anonym callback funktion
+        h1Element.addEventListener("click", function () {
+            snakPElement.classList.toggle("hotpink");
+        });
+
+        // Funktionserklæring
+        function tilføjtekst() {
+            snakPElement.innerText += ".";
+        };
+
+        // Navngiven funktion
+        snakPElement.addEventListener("click", tilføjtekst);
+
+        // Anonym pile funktion
+        h1Element.addEventListener("mouseover", () => {
+            h1Element.classList.add("sparkel");
+        });
+
+        h1Element.addEventListener("mouseout", function () {
+            h1Element.classList.remove("sparkel");
+        });
+
+        // DEL 02
+
+        let divSnackElement = document.getElementById("snackContainer");
+
+        let snackList = [
+            { navn: "Dreamies", stjerner: 3 },
+            { navn: "Laks", stjerner: 4 }
+        ]
+
+        for (let snack of snackList) {
+            let godSnackEle = document.createElement("div");
+            godSnackEle.classList.add("snack");
+
+            let h3Navn = document.createElement("h3");
+            h3Navn.innerText = snack.navn;
+
+            godSnackEle.appendChild(h3Navn);
+
+            let textP = document.createElement("p");
+            textP.innerText = snack.stjerner;
+
+            godSnackEle.appendChild(textP);
+
+            divSnackElement.appendChild(godSnackEle);
+
+        }
+
+        divSnackElement.addEventListener("click", function(eventObj){
+            let pfeedback = document.getElementById("feedback");
+            pfeedback.innerText = "Det element er triggede eventet: " + eventObj.target.tagName + " Det element der lytter " + eventObj.currentTarget.tagName;
+            console.log(eventObj.target);
+            console.log(eventObj.currentTarget);
+
+            if(eventObj.target.tagName === "H3"){
+                let parentElement = eventObj.target.parentElement;
+                console.log("HJE ER EVENT")
+                console.log(parentElement);
+                parentElement.setAttribute("style", "background-color: hotpink");
+                console.log(eventObj.clientX);
+                console.log(eventObj.clientY);
+                pfeedback.innerText += "\n clientY: " + eventObj.clientY +  " clientX: " + eventObj.clientX;
+            }
+        });
+
+
+        //// Del 3
+
+        let form = document.getElementById("snackform");
+
+        form.addEventListener("submit", function(e){
+            e.preventDefault();
+            let snackNavn = this.elements["snackname"].value;
+            let stjerne = this.elements["stjerner"].value;
+
+            let snackObj = {
+                navn: snackNavn, stjerne: stjerne
+            }
+            snackList.push(snackObj);
+
+
+            let divSnackElem = document.createElement("div");
+            divSnackElem.classList.add("snack");
+
+            let h3Elem = document.createElement("h3");
+            h3Elem.innerText = snackObj.navn;
+            divSnackElem.appendChild(h3Elem);
+
+            let pElm = document.createElement("p");
+            pElm.innerText = "Favorit stjerner: " + snackObj.stjerne;
+
+            divSnackElem.appendChild(h3Elem);
+            divSnackElem.appendChild(pElm);
+            divSnackElement.appendChild(divSnackElem);
+
+            
+
+            this.reset();
+        })
+    </script>
+</body>
+
+</html>

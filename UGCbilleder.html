@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGC billeder</title>
+    <link rel="stylesheet" href="style.css"> <!-- Jeg linker til mit CSS stylesheetet-->
+
+</head>
+<body>
+<!--Jeg opretter en uordnet liste og opretter de forskellige html-sider som listepunkter samt navngiver dem-->
+     <ul>
+        <li><a href="minHjemmeside.html">FORSIDE</a></li> <!-- <a> tagget betyder et link. Attributten href er referencen/filens adresse -->
+        <li><a href="Videoer.html">VIDEOER</a></li>        
+        <li><a href="MineSamarbejder.html">MINE SAMARBEJDER</a></li>
+        <li><a href="Testimonials.html">TESTIMONIALS</a></li>
+        <li><a href="UGCbilleder.html">BILLEDER</a></li>
+    </ul>
+
+<!--jeg giver overskrifterne (alle h1) klassen "overskrift", så de kan styles ens i CSS-->
+ <h1 class="overskrift">UGC billeder</h1>
+
+<!-- div (beholder) med klassen "galleri", så billederne kan styles ens i CSS-->
+ <div class="galleri">
+    <img src="fotos/parfume.png"/> <!-- Hvert <img>-tag viser ét billede. src er stien til filen i mappen "fotos".-->
+    <img src="fotos/højtaler.png"/>
+    <img src="fotos/hårbørste.png"/>
+    <img src="fotos/Bikini.png"/>
+    <img src="fotos/creme.png"/>
+    <img src="fotos/bøger.png"/>
+    <img src="fotos/sti.png"/>
+    <img src="fotos/seng.png"/>
+ </div>
+
+<script>
+    // Finder alle billeder på siden og gemmer dem i en liste
+    let galleri = document.querySelectorAll("img");
+
+galleri.forEach(function (billede) {        // Går igennem hvert billede i listen, ét ad gangen
+  billede.addEventListener("click", function () {         // Lytter efter klik på det enkelte billede
+
+    let overlay = document.createElement("div");    // Laver en ny div, som skal være den mørke baggrund (overlay)
+    overlay.classList.add("lightbox");             // Giver diven klassen "lightbox", så CSS'en styrer udseendet
+
+    let stortBillede = document.createElement("img"); // Laver et nyt img-element til det store billede
+    stortBillede.src = billede.src;      // Det store billede får samme fil som det billede, der blev klikket på
+
+    overlay.appendChild(stortBillede);      // Lægger det store billede ind i overlayet
+    document.body.appendChild(overlay);     // Lægger overlayet ind på siden, så det bliver synligt
+
+    overlay.addEventListener("click", function () {   // Når man klikker på overlayet, lukkes lightboxen igen
+      overlay.remove();                       // Fjerner overlayet helt fra siden
+    });
+  });
+});
+</script>
+
+
+</body>
+</html>
